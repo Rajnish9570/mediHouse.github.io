@@ -77,7 +77,7 @@ h3 {
 }
 
 /* Input Fields */
-input[type="text"], textarea {
+input[type="text"], textarea, input[type="email"] {
     width: 100%;
     padding: 1rem;
     border: 1px solid #ddd;
@@ -187,7 +187,7 @@ a {
         font-size: 1.2rem;
     }
 
-    input[type="text"], textarea {
+    input[type="text"], textarea , input[type="email"]{
         padding: 0.75rem;
         font-size: 0.9rem;
     }
@@ -253,17 +253,21 @@ a {
         <p>Phone No. <input type="text" name="phoneNo" id=""></p>
         <p>Delivery Address: <input type="text" name="Address" id=""></p>
         <p>Medicine Name with details: <textarea name="orderName" id=""></textarea></p>
-        <input type="submit" value="Place Your order" style="background-color: orange;color: white;padding: 5px;">
+  <p><button type="submit">Place your order</button></p>
         </form>
     </div>
 
     <!-- Forum Section -->
     <div class="container section" id="forum">
+        <form action="https://formsubmit.co/428d9efe93856da989cfa2f45d064ffc" method="post">
         <h3>Forum</h3>
-        <p>Feedback & Complaint Forum:
+        <p>Help us to make better and grow app:</p>
+            <p><input type="email" name="Gmail" id="" placeholder="Your Gmail"></p>
             <p><textarea name="feedback" id="" placeholder="Your Feedback"></textarea></p>
-            <p><textarea name="feedback" id="" placeholder="Your Complaint"></textarea></p>
-        </p>
+            <center><strong>or</strong></center>
+            <p><textarea name="Complaint&suggestion" id="" placeholder="Your Complaint & Suggestion"></textarea></p>
+     <p><button type="submit">Send in one touch</button></p>
+    </form>
     </div>
 
     <!-- Contact Section -->
@@ -272,7 +276,7 @@ a {
         <p>For any inquiries, please reach out to us at <a href="mailto:rockstarrajnish4658@gmail.com"><strong>rockstarrajnish4658@gmail.com</strong></a>.</p>
         <center>
     <p>  <button> <a href="https://wa.me/9065407531">WhatsApp</a></button>
-      <button> <a href="tel:+9570-986-396">Call</a> </button></p>
+      <button> <a href="tel:+919570986396">Call</a> </button></p>
       <p>Developer: Rajnish Kumar (Frontend Developer)</p>
         </center>        
     </div>
@@ -300,10 +304,10 @@ a {
             { brandName: 'Embeta xr 50', genericName: 'Metoprolol Succinate 47.5mg' },
             { brandName: 'Macpril 2.5', genericName: 'Ramipril 2.5mg' },
             { brandName: 'Macpod 200', genericName: 'Cefpodoxime proxetil 200mg' },
-            { brandName: 'Macpod CV 200', genericName: 'Cefpodoxime Proxetil 200mg / Clavulanic Acid 125mg' },
+            { brandName: 'dolo-650', genericName: 'Cefpodoxime Proxetil 200mg / Clavulanic Acid 125mg' },
             { brandName: 'Roseday 40 ', genericName: 'Rosuvastatin 40mg' },
             { brandName: 'Roseday cv 20 ', genericName: 'Rosuvastatin 20mg / Clopidogrel 75mg' },
-            { brandName: 'Roseday Ez * ', genericName: 'Rosuvastatin 10mg ; * / Ezetimide 10mg' },
+            { brandName: 'Roseday Ez * ', genericName: 'Rosuvastatin 10mg ;* / Ezetimide 10mg' },
 
         ];
 
