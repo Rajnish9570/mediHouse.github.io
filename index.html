@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediHouse</title>
+    
+    <style>
+    
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    background-color: orange;
+    padding: 1rem;
+}
+
+.navbar {
+    background-color: #fff;
+  padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.navbar ul li {
+    margin: 0 1rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: orange;
+}
+
+/* Container Styling */
+.container {
+    max-width: 90vw;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Header Styling */
+h3 {
+    text-align: center;
+    color: orange;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Input Fields */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: orange;
+    outline: none;
+}
+
+/* Special Suggestion Box Styling */
+.suggestions-box {
+    position: relative;
+}
+
+ul.suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    background: #f9f9f9;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    z-index: 1000;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+ul.suggestions-list li {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+ul.suggestions-list li:hover {
+    background-color: #e2e6ea;
+    color: black;
+}
+
+/* Result List Styling */
+ul.result-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+ul.result-list li {
+    background: #f8f9fa;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+ul.result-list li:hover {
+    background-color: #e9ecef;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Section Styling */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+/* Button Styling */
+button {
+    padding: 1rem;
+    background-color: orange;
+    color: white;
+    width: 40%;
+    border: none;
+    outline: none;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    input[type="text"], textarea {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    ul.suggestions-list li, ul.result-list li {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .navbar ul li a {
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 80%;
+        font-size: 0.9rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" data-target="home">Home</a></li>
+            <li><a href="#" data-target="search">Search</a></li>
+            <li><a href="#" data-target="order">Order Medicine</a></li>
+            <li><a href="#" data-target="forum">Forum</a></li>
+            <li><a href="#" data-target="contact">Contact</a></li>
+        </ul>
+    </nav>
+    <center>
+<h1> <img src="WhatsApp Image 2024-08-19 at 02.14.35.jpeg" height="50" width="50"  alt=""> <br> mediHouse</h1>
+ </center>
+    <!-- Home Section -->
+    <div class="container section active" id="home">
+        <h3>Welcome to the mediHouse</h3>
+        <p>This platform helps you find the generic names of medicines based on their brand names. Navigate using the menu above.</p>
+        <p>
+          <strong> About MediHouse</strong> <br>
+            Welcome to MediHouse, your reliable partner in navigating the world of medicines. Our platform is designed to make it easy for you to find the generic equivalents of brand-name drugs, ensuring you have access to the information you need to make informed choices about your healthcare. Whether you’re searching for the most cost-effective options or simply need to understand your medication better, MediHouse is here to help.
+            We believe in the power of knowledge and transparency in healthcare. By providing a comprehensive database of brand and generic names, MediHouse empowers you to compare alternatives, learn about different drug compositions, and make decisions that best suit your needs. Our commitment to accuracy and user-friendliness makes MediHouse a trusted resource for both healthcare professionals and everyday users.
+            Explore our features, from the easy-to-use search function to our upcoming forums and order panel, where you can connect with others, share experiences, and even order your medications online. MediHouse is more than just a search tool; it’s your gateway to better health management.
+        </p>
+    </div>
+
+    <!-- Search Section -->
+    <div class="container section" id="search">
+        <h3>Search Generic Name of Medicine by Brand Name</h3>
+        <div class="suggestions-box">
+            <input type="text" id="searchBox" placeholder="Search by brand name...">
+            <ul id="suggestionsList" class="suggestions-list hidden"></ul>
+        </div>
+        <ul id="entriesList" class="result-list hidden"></ul>
+    </div>
+
+    <!-- Order Medicine Section -->
+    <div class="container section" id="order">
+        <form action="https://formsubmit.co/428d9efe93856da989cfa2f45d064ffc" method="post">
+        <h3>Order Medicine</h3>
+        <p>Name: <input type="text" name="Name" id=""> </p>
+        <p>Phone No. <input type="text" name="phoneNo" id=""></p>
+        <p>Delivery Address: <input type="text" name="Address" id=""></p>
+        <p>Medicine Name with details: <textarea name="orderName" id=""></textarea></p>
+        <input type="submit" value="Place Your order" style="background-color: orange;color: white;padding: 5px;">
+        </form>
+    </div>
+
+    <!-- Forum Section -->
+    <div class="container section" id="forum">
+        <h3>Forum</h3>
+        <p>Feedback & Complaint Forum:
+            <p><textarea name="feedback" id="" placeholder="Your Feedback"></textarea></p>
+            <p><textarea name="feedback" id="" placeholder="Your Complaint"></textarea></p>
+        </p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container section" id="contact">
+        <h3>Contact Us</h3>
+        <p>For any inquiries, please reach out to us at <a href="mailto:rockstarrajnish4658@gmail.com"><strong>rockstarrajnish4658@gmail.com</strong></a>.</p>
+        <center>
+    <p>  <button> <a href="https://wa.me/9065407531">WhatsApp</a></button>
+      <button> <a href="tel:+9570-986-396">Call</a> </button></p>
+      <p>Developer: Rajnish Kumar (Frontend Developer)</p>
+        </center>        
+    </div>
+
+    <script>
+        // Predefined list of brand and generic names
+        const predefinedEntries = [
+            { brandName: 'Lcz Tablets', genericName: 'Levocetirizine 5mg' },
+            { brandName: 'Pan 40', genericName: 'Pantoprazole 40mg' },
+            { brandName: 'Pan D', genericName: 'Domperidone 30mg / Pantoprazole 40mg' },
+            { brandName: 'Rantac 150', genericName: 'Ranitidine 150mg' },
+            { brandName: 'Rantac OD 300', genericName: 'Ranitidine 300mg' },
+            { brandName: 'Neodosin D', genericName: 'Silodosin 8mg / Dutasteride 0.5mg' },
+            { brandName: 'Torvate Chrono 300', genericName: 'Sodium Valproate 200mg / Valproic 87mg' },
+            { brandName: 'Torvate Chrono 500', genericName: 'Sodium Valproate 333mg / Valproic 145mg' },
+            { brandName: 'Betnesol', genericName: 'Betamethasone 0.5mg' },
+            { brandName: 'Zenflox 200', genericName: 'Ofloxacin 200mg' },
+            { brandName: 'Zenflox OZ', genericName: 'Ofloxacin 200mg / Ornidazole 500mg' },
+            { brandName: 'Zerodol sp', genericName: 'Aceclofenac 100mg / Paracetamol 325mg / Serratiopeptidase 15mg' },
+            { brandName: 'Mox cv 625', genericName: 'Amoxycillin 500mg / Clavulanic Acid 125mg ' },
+            { brandName: 'Ecosprin AV 75', genericName: 'Atorvastatin 10mg / Aspirin 75mg' },
+            { brandName: 'Dolo-650', genericName: 'Paracetamol 650mg' },
+            { brandName: 'Trixalen 25 ', genericName: 'Trioxasalen 25mg ' },
+            { brandName: 'O2', genericName: 'Ofloxacin 200mg / Ornidazole 500mg' },
+            { brandName: 'Embeta xr 50', genericName: 'Metoprolol Succinate 47.5mg' },
+            { brandName: 'Macpril 2.5', genericName: 'Ramipril 2.5mg' },
+            { brandName: 'Macpod 200', genericName: 'Cefpodoxime proxetil 200mg' },
+            { brandName: 'dolo-650', genericName: 'Cefpodoxime Proxetil 200mg / Clavulanic Acid 125mg' },
+            { brandName: 'Roseday 40 ', genericName: 'Rosuvastatin 40mg' },
+            { brandName: 'Roseday cv 20 ', genericName: 'Rosuvastatin 20mg / Clopidogrel 75mg' },
+            { brandName: 'Roseday Ez * ', genericName: 'Rosuvastatin 10mg ;* / Ezetimide 10mg' },
+
+        ];
+
+        // Save predefined entries to local storage on page load
+        localStorage.setItem('brandEntries', JSON.stringify(predefinedEntries));
+
+        // Function to render entries from local storage based on exact brand name match
+        function renderEntries(query = '') {
+            const entriesList = document.getElementById('entriesList');
+            const entries = JSON.parse(localStorage.getItem('brandEntries')) || [];
+            const filteredEntries = entries.filter(entry =>
+                entry.brandName.toLowerCase() === query.toLowerCase()
+            );
+
+            entriesList.innerHTML = ''; // Clear the current list
+
+            if (filteredEntries.length > 0 && query !== '') {
+                entriesList.classList.remove('hidden');
+                filteredEntries.forEach(entry => {
+                    const li = document.createElement('li');
+                    li.textContent = `${entry.brandName} - ${entry.genericName}`;
+                    entriesList.appendChild(li);
+                });
+            } else {
+                entriesList.classList.add('hidden');
+            }
+        }
+
+        // Function to render suggestions based on partial match
+        function renderSuggestions(query) {
+            const suggestionsList = document.getElementById('suggestionsList');
+            const entries = JSON.parse(localStorage.getItem('brandEntries')) || [];
+            const filteredSuggestions = entries.filter(entry =>
+                entry.brandName.toLowerCase().includes(query.toLowerCase())
+            );
+
+            suggestionsList.innerHTML = ''; // Clear the current suggestions
+
+            if (filteredSuggestions.length > 0 && query.length >= 2) {
+                suggestionsList.classList.remove('hidden');
+                filteredSuggestions.forEach(entry => {
+                    const li = document.createElement('li');
+                    li.textContent = entry.brandName;
+                    li.addEventListener('click', () => {
+                        document.getElementById('searchBox').value = entry.brandName;
+                        suggestionsList.classList.add('hidden');
+                        renderEntries(entry.brandName);
+                    });
+                    suggestionsList.appendChild(li);
+                });
+            } else {
+                suggestionsList.classList.add('hidden');
+            }
+        }
+
+        // Event listener for search input
+        document.getElementById('searchBox').addEventListener('input', function (e) {
+            const query = e.target.value;
+            renderSuggestions(query);
+            renderEntries(query);
+        });
+
+        // Navigation handling
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = e.target.getAttribute('data-target');
+
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // Hide the list on page load
+        renderEntries();
+    </script>
+</body>
+</html>
